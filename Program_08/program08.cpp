@@ -1,33 +1,36 @@
-#include <iostream> 
- 
-class Academic { 
-public: 
-void display() const { 
-std::cout << "Academic information\n"; 
-} 
-}; 
- 
-class Sports { 
-public: 
- 
-void display() const { 
-std::cout << "Sports information\n"; 
-} 
-}; 
- 
-class Student : public Academic, public Sports { 
-public: 
-void displayAll() const { 
-Academic::display(); 
-Sports::display(); 
-} 
-}; 
-int main() { 
-Student student; 
- 
-student.Academic::display(); 
-student.Sports::display(); 
-student.displayAll(); 
- 
-return 0; 
+#include <iostream>
+
+class Base
+{
+public:
+    Base()
+    {
+        std::cout << "Base constructor\n";
+    }
+
+    ~Base()
+    {
+        std::cout << "Base destructor\n";
+    }
+};
+
+class Derived : public Base
+{
+public:
+    Derived()
+    {
+        std::cout << "Derived constructor\n";
+    }
+
+    ~Derived()
+    {
+        std::cout << "Derived destructor\n";
+    }
+};
+
+int main()
+{
+    Derived object;
+
+    return 0;
 }
